@@ -15,9 +15,9 @@
 
 using namespace Gos;
 
-#define PORT 33222
-//#define SERVER_ADDR "172.16.2.33"
-#define SERVER_ADDR "172.16.2.4"
+#define PORT 30100
+#define SERVER_ADDR "172.16.2.35"
+//#define SERVER_ADDR "172.16.2.4"
 #define BUFFER_SIZE 4096
 
 /*
