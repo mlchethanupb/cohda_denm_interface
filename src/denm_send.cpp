@@ -15,7 +15,8 @@
 
 using namespace Gos;
 
-#define PORT 30100
+//#define PORT 30100
+#define PORT 33222
 #define SERVER_ADDR "172.16.2.35"
 //#define SERVER_ADDR "172.16.2.4"
 #define BUFFER_SIZE 4096
@@ -149,16 +150,6 @@ void DENM_Interface::set_subject_vehicle_info(const ros_collision_detection::Obj
 }
 
 
-
-void ego_position_Callback(const ros_collision_detection::SubjectVehicleMotion::ConstPtr& msg){
-
-    std::cout << " ============== ego position received ====================== " << std::endl;
-    denm_obj.set_subject_vehicle_info(msg->vehicle_movement);
-    std::cout << "object id: " << denm_obj.get_subject_vehicle_info().id << std::endl;
-
-}
-
-
 void collision_warning_Callback(const ros_collision_detection::CollisionCheckResult::ConstPtr& msg){
 
     std::cout << " ========= Collision Warning message received ==================" << std::endl;
@@ -201,7 +192,6 @@ int main(int argc, char** argv)
     // Create a ROS subscriber
     //ros::Subscriber sub = nh.subscribe("cpm_provided", 10, &serialize_cpm);
 
-    ros::Subscriber sub_ego_pos = nh.subscribe("ego_position", 10, &ego_position_Callback);
     ros::Subscriber sub_colln_warning = nh.subscribe("collision_warning", 10, &collision_warning_Callback);
 
     // ROS main loop
